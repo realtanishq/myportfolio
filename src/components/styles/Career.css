@@ -26,8 +26,8 @@
   margin-bottom: 90px;
 }
 .career-section h2 > span {
-  font-family: "Geist", sans-serif;
-  font-weight: 300;
+  font-family: "Clash Display", sans-serif;
+  font-weight: 6  00;
 }
 .career-info {
   position: relative;
@@ -51,6 +51,7 @@
   width: 40%;
   justify-content: space-between;
   gap: 50px;
+  align-items: flex-start;
 }
 .career-info h3 {
   font-size: 48px;
@@ -65,6 +66,8 @@
   letter-spacing: 0.8px;
   font-weight: 500;
   margin: 0;
+  width: 180px;
+
 }
 .career-info h5 {
   font-weight: 400;
@@ -79,6 +82,7 @@
   top: -50px;
   left: 50%;
   transform: translateX(-50%);
+  
   width: 3px;
   height: 100%;
   background-image: linear-gradient(

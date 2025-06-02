@@ -1,40 +1,56 @@
 .work-section h2 {
-  margin-top: 100px;
+  margin-top: 0px;
   font-size: 70px;
   font-weight: 500;
+  margin-bottom: 0px;
 }
 .work-section h2 > span {
   color: var(--accentColor);
 }
+
 .work-section {
   transition: 0s;
-  height: 100vh;
+  min-height: 100vh;
+  transform: translateY(-100px);
+  height: auto;
   box-sizing: border-box;
   will-change: transform;
+  margin-bottom: 150px;
+  padding-bottom: 200px;
+  overflow-x: auto;
+  overflow-y: visible;
+  transform: translateY(-100px);
+  position: relative;
 }
 .work-container {
   margin: auto;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
+  min-height: 120vh;
   align-content: stretch;
+  position: relative;
+  overflow: visible;
 }
 .work-flex {
   width: 100%;
   display: flex;
-  height: 100%;
+  height: auto;
+  min-height: 80vh;
   margin-left: -80px;
   padding-right: 120px;
   position: relative;
+  margin-bottom: 100px;
+  overflow: visible;
 }
 .work-box {
   padding: 80px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 800px;
   box-sizing: border-box;
   border-right: 1px solid #363636;
-  flex-shrink: 0;
+  flex: 0 0 800px;
   gap: 50px;
   justify-content: start;
 }
@@ -89,9 +105,12 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  background-color: #000;
 }
 .work-image-in {
   position: relative;
+  width: 100%;
+  background-color: #000;
 }
 .work-link {
   position: absolute;
@@ -129,9 +148,19 @@
   max-width: 100%;
   max-height: 350px;
 }
+.work-image iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  background-color: #000;
+  display: block;
+}
 @media only screen and (max-height: 900px) {
   .work-image img {
     max-height: 250px;
+  }
+  .work-image iframe {
+    height: 350px;
   }
   .work-box {
     padding-top: 40px;
@@ -154,7 +183,7 @@
     font-size: 15px;
   }
   .work-box {
-    width: 450px;
+    width: 600px;
     padding: 50px;
   }
   .work-flex {
@@ -164,21 +193,25 @@
   .work-section h2 {
     font-size: 50px;
   }
+  .work-image iframe {
+    height: 400px;
+  }
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1200px) {
   .work-box {
-    width: 350px;
-    padding: 30px;
+    width: 500px;
+    padding: 40px;
   }
-  .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
+  .work-image iframe {
+    height: 350px;
   }
 }
-
 @media only screen and (max-height: 650px) {
   .work-image img {
     max-height: 200px;
+  }
+  .work-image iframe {
+    height: 300px;
   }
   .work-section h2 {
     font-size: 40px;

@@ -15,43 +15,36 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Freelancing</h4>
               </div>
-              <h3>20XX</h3>
+              <h4>2020-present</h4>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+            In my freelancing journey, I’ve worked on a wide range of projects — from lyrical videos to brand reels, bringing each idea to life with creativity and detail.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Creative Assistant</h4>
+                <h5>Artistic eye</h5>
               </div>
-              <h3>20XX</h3>
+              <h4>March 2023- May 2023</h4>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+            I’ve worked on finding creative ideas and bringing them to life for different brands.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Video Editor</h4>
+                <h5>Mirnova pvt ltd</h5>
               </div>
-              <h3>NOW</h3>
+              <h4>February 2025 - may 2025</h4>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+            I’ve shot and edited high-quality promotional videos for real estate and resorts. Also worked with team to create engaging content.
             </p>
           </div>
         </div>

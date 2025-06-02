@@ -87,24 +87,18 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
+              <h3>VIDEO EDITING</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+              Started editing just for fun, now I shape stories, emotions, and moments through timelines, transitions, and a whole lot of late nights.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">After Effects</div>
+                <div className="what-tags">Premiere Pro</div>
+                <div className="what-tags">Davinci Resolve</div>
+                <div className="what-tags">illustrator</div>
+                <div className="what-tags">Photoshop</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -128,22 +122,18 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
+              <h3>FILMMAKING</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+              I’m passionate about capturing genuine moments<br></br>from short films to documentaries I love to craft stories that connect us.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">direction</div>
+                <div className="what-tags">cinematography</div>
+                <div className="what-tags">scriptwriting</div>
+                <div className="what-tags">sound</div>
+                <div className="what-tags">editing</div>
               </div>
               <div className="what-arrow"></div>
             </div>
