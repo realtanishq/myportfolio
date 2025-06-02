@@ -2,9 +2,11 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
-gsap.registerPlugin(useGSAP);
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface WorkItem {
   id: number;
