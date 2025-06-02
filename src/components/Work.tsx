@@ -1,11 +1,8 @@
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
+import React from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from "gsap";
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 interface WorkItem {
@@ -63,7 +60,7 @@ const workItems: WorkItem[] = [
 ];
 
 const Work = () => {
-  useGSAP(() => {
+  React.useEffect(() => {
     let translateX: number = 0;
     function setTranslateX() {
       const box = document.getElementsByClassName("work-box");
