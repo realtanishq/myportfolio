@@ -1,145 +1,271 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
-import React from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import WorkImage from "./WorkImage";
+// React import not required with the new JSX transform and no hooks used
+// Removed GSAP horizontal scroll/pin behavior for a minimal grid layout
 
-interface WorkItem {
-  id: number;
-  title: string;
-  category: string;
-  tools: string;
-  videoUrl?: string;
-  imageUrl?: string;
-}
-
-const workItems: WorkItem[] = [
-  {
-    id: 1,
-    title: "Project 1",
-    category: "Promotional reel for a media agency",
-    tools: "After Effects, Premiere Pro",
-    videoUrl: "https://player.vimeo.com/video/1089473499?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    category: "Lyrical Video",
-    tools: "After Effects",
-    videoUrl: "https://player.vimeo.com/video/1089473251?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    category: "Podcast Edit",
-    tools: " Premiere Pro",
-    videoUrl: "https://player.vimeo.com/video/1089473389?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  },
-  {
-    id: 4,
-    title: "Project 4",
-    category: "Festival Motion Graphics",
-    tools: "After Effects",
-    videoUrl: "https://player.vimeo.com/video/1089473204?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  },
-  {
-    id: 5,
-    title: "Project 5",
-    category: "Short Film",
-    tools: "After Effects, Premiere Pro",
-    videoUrl: "https://player.vimeo.com/video/1089476080?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  },
-  {
-    id: 6,
-    title: "Project 6",
-    category: "Youtube Video",
-    tools: "After Effects, Premiere Pro",
-    videoUrl: "https://player.vimeo.com/video/1089477410?h=1a2b3c4d5e&autoplay=0&title=0&byline=0&portrait=0"
-  }
-];
+// Old workItems and WorkImage usage removed in favor of structured placeholders
 
 const Work = () => {
-  React.useEffect(() => {
-    let translateX: number = 0;
-    function setTranslateX() {
-      const box = document.getElementsByClassName("work-box");
-      const rectLeft = document
-        .querySelector(".work-container")!
-        .getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      let padding: number =
-        parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-    }
-
-    setTranslateX();
-
-    let timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".work-section",
-        start: "top-=-100px top",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-        pinSpacing: true,
-        pinType: !ScrollTrigger.isTouch ? "transform" : "fixed",
-        id: "work",
-        anticipatePin: 1,
-      },
-    });
-
-    timeline.to(".work-flex", {
-      x: -translateX,
-      duration: 40,
-      delay: 0.2,
-    });
-  }, []);
-
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
           My <span>Work</span>
         </h2>
-        <div className="work-flex">
-          {workItems.map((item) => (
-            <div className="work-box" key={item.id}>
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>0{item.id}</h3>
-                  <div>
-                    <h4>{item.title}</h4>
-                    <p>{item.category}</p>
-                  </div>
-                </div>
-                <h4>Tools and features</h4>
-                <p>{item.tools}</p>
-              </div>
-              <div className="work-image">
-                <div className="work-image-in">
-                  {item.videoUrl ? (
+
+        {/* Short Form Content */}
+        <div className="work-group">
+          <h3 className="work-subheading">Short Form Content</h3>
+          <div className="work-grid work-grid--3x3">
+            {Array.from({ length: 3 }).map((_, idx) => (
+              <div className="work-card" key={`short-${idx}`}>
+                <div className="work-media aspect-9x16">
+                  {idx === 0 ? (
                     <iframe
-                      src={item.videoUrl}
-                      width="100%"
-                      height="450"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
+                      className="youtube-embed"
+                      src="https://www.youtube.com/embed/4_UeaIERR88?playsinline=1&rel=0&modestbranding=1"
+                      title="Short 1"
+                      allow="fullscreen; picture-in-picture"
                       allowFullScreen
-                      style={{ 
-                        maxHeight: '450px',
-                        backgroundColor: '#000',
-                        display: 'block'
-                      }}
+                    ></iframe>
+                  ) : idx === 1 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1089473499?title=0&byline=0&portrait=0"
+                      title="Short 2"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : idx === 2 ? (
+                    <iframe
+                      className="youtube-embed"
+                      src="https://www.youtube.com/embed/px5NpO7nAJc?playsinline=1&rel=0&modestbranding=1"
+                      title="Short 3"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
                     ></iframe>
                   ) : (
-                    <WorkImage image={item.imageUrl || "/images/placeholder.webp"} alt={item.title} />
+                    <div className="placeholder" />
                   )}
                 </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 1).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Short #{idx + 1}</h4>
+                      <p>Instagram Reels</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <div className="work-divider" />
+
+        {/* Cinematography */}
+        <div className="work-group">
+          <h3 className="work-subheading">Cinematography</h3>
+          <div className="work-grid work-grid--2x2">
+            {Array.from({ length: 2 }).map((_, idx) => (
+              <div className="work-card" key={`cine-a-${idx}`}>
+                <div className={`work-media aspect-16x9`}>
+                  {idx === 0 ? (
+                    <iframe
+                      className="youtube-embed"
+                      src="https://www.youtube.com/embed/WbhjeXSSt58?playsinline=1&rel=0&modestbranding=1"
+                      title="Cine 1"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <iframe
+                      src="https://www.youtube.com/embed/CM_LiWJQU00?rel=0&modestbranding=1"
+                      title="Cine 2"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 1).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Cine #{idx + 1}</h4>
+                      <p>Brand Ads</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="work-grid work-grid--3x3">
+            {Array.from({ length: 3 }).map((_, idx) => (
+              <div className="work-card" key={`cine-b-${idx}`}>
+                <div className="work-media aspect-16x9">
+                  {idx === 0 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114240504?title=0&byline=0&portrait=0"
+                      title="Cine 3"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : idx === 1 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114240562?title=0&byline=0&portrait=0"
+                      title="Cine 4"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114240536?title=0&byline=0&portrait=0"
+                      title="Cine 5"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 3).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Cine #{idx + 1}</h4>
+                      <p>Brand Promtional Reel {idx + 1}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="work-divider" />
+
+        {/* Edited Videos */}
+        <div className="work-group">
+          <h3 className="work-subheading">Edited Videos</h3>
+          <div className="work-grid work-grid--2x2">
+            {Array.from({ length: 2 }).map((_, idx) => (
+              <div className="work-card" key={`edit-a-${idx}`}>
+                <div className="work-media aspect-16x9">
+                  {idx === 0 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114243304?title=0&byline=0&portrait=0"
+                      title="Edited 1"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114243276?title=0&byline=0&portrait=0"
+                      title="Edited 2"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 1).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Edit #{idx + 1}</h4>
+                      <p>Motion Graphics {idx + 1}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="work-grid work-grid--2x2">
+            {Array.from({ length: 2 }).map((_, idx) => (
+              <div className="work-card" key={`edit-b-${idx}`}>
+                <div className="work-media aspect-16x9">
+                  {idx === 0 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1089473251?title=0&byline=0&portrait=0"
+                      title="Edited 3"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <iframe
+                      src="https://www.youtube.com/embed/aEzjOr5Ydm0?rel=0&modestbranding=1"
+                      title="Edited 4"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 3).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Edit #{idx + 3}</h4>
+                      <p>Edited Video {idx + 1}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="work-divider" />
+
+        {/* My Projects */}
+        <div className="work-group">
+          <h3 className="work-subheading">My Projects</h3>
+          <div className="work-grid work-grid--3x3">
+            {Array.from({ length: 3 }).map((_, idx) => (
+              <div className="work-card" key={`proj-${idx}`}>
+                <div className="work-media aspect-16x9">
+                  {idx === 0 ? (
+                    <iframe
+                      src="https://www.youtube.com/embed/7xaYrAF4D5o?rel=0&modestbranding=1"
+                      title="Project 1"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : idx === 1 ? (
+                    <iframe
+                      src="https://www.youtube.com/embed/bd7ZygZJeJk?rel=0&modestbranding=1"
+                      title="Project 2"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : idx === 2 ? (
+                    <iframe
+                      className="vimeo-embed"
+                      src="https://player.vimeo.com/video/1114246115?title=0&byline=0&portrait=0"
+                      title="Project 3"
+                      allow="fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <div className="placeholder" />
+                  )}
+                </div>
+                <div className="work-meta">
+                  <div className="work-title">
+                    <h3>{String(idx + 1).padStart(2, "0")}</h3>
+                    <div>
+                      <h4>Project #{idx + 1}</h4>
+                      <p>{idx === 0 ? 'Shortfilm' : idx === 1 ? 'Mini-Documentary' : 'Khatta Flow'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

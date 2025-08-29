@@ -7,6 +7,7 @@ const WhatIDo = () => {
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
@@ -16,12 +17,25 @@ const WhatIDo = () => {
         }
       });
     }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("what-inview");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       containerRef.current.forEach((container) => {
         if (container) {
           container.removeEventListener("click", () => handleClick(container));
         }
       });
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
   return (
@@ -35,7 +49,7 @@ const WhatIDo = () => {
         </h2>
       </div>
       <div className="what-box">
-        <div className="what-box-in">
+        <div className="what-box-in" ref={sectionRef}>
           <div className="what-border2">
             <svg width="100%">
               <line
