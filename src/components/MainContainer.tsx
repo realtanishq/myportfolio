@@ -39,8 +39,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <Landing>{!isDesktopView && children}</Landing>
             <About />
             <WhatIDo />
-            <Career />
             <Work />
+            <Career />
             <Contact />
           </div>
         </div>
